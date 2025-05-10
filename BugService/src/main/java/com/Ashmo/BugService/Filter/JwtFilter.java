@@ -1,4 +1,4 @@
-package com.Ashmo.UserService.Filter;
+package com.Ashmo.BugService.Filter;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.Ashmo.UserService.Service.JwtService;
-import com.Ashmo.UserService.Service.MyUserDetailsService;
+import com.Ashmo.BugService.Service.JwtService;
+import com.Ashmo.BugService.Service.MyUserDetailsService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

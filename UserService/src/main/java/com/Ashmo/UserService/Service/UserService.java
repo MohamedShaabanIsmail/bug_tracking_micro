@@ -48,5 +48,13 @@ public class UserService {
         tokens.put("refresh_token", token);
         return tokens;
     }
+
+    public String getUsername(int id) {
+        return userRepo.getUsername(id);
+    }
+
+    public Users getUser(String username) {
+        return userRepo.getByUsername(username);
+    }
     
 }

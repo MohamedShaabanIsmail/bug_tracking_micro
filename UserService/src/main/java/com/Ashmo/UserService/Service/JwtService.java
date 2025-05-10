@@ -1,6 +1,7 @@
 package com.Ashmo.UserService.Service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
 
 @Service
 public class JwtService {
@@ -21,12 +23,7 @@ public class JwtService {
     private SecretKey seckey ;
 
     public JwtService() {
-        try {
-            seckey = KeyGenerator.getInstance("HmacShA256").generateKey();
-        } catch (NoSuchAlgorithmException e) {
-            System.out.println("cannot generate seckey");
-            throw new RuntimeException(e);
-        }
+        seckey = Keys.hmacShaKeyFor(Base64.getDecoder().decode("MicroserviceSecureApplicationAshmoSecretByJwtandRefreshT")); 
     }
 
     public String generateToken(String username, int time) {

@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.Ashmo.BugService.DTO.BugWithComment;
 import com.Ashmo.BugService.Feign.CommentsInterface;
+import com.Ashmo.BugService.Feign.UsersInterface;
+import com.Ashmo.BugService.Model.BugWrapper;
 import com.Ashmo.BugService.Model.Bugs;
+import com.Ashmo.BugService.Model.Comments;
 import com.Ashmo.BugService.Repository.BugsRepo;
 
 @Service
@@ -19,6 +22,8 @@ public class BugsService {
 
     @Autowired
     private CommentsInterface commentsInterface;
+    @Autowired
+    private UsersInterface usersInterface;
     
     public List<Bugs> getAllBugs() {
         return bugsRepo.findAll();
@@ -40,8 +45,26 @@ public class BugsService {
     
     public BugWithComment getBugById(int id) {
         BugWithComment bugWithComment = new BugWithComment();
-        bugWithComment.setComments(commentsInterface.getCommentsByBugId(id));
-        bugWithComment.setBug(bugsRepo.findById(id).orElse(null));
+
+        List<Comments> comments = commentsInterface.getCommentsByBugId(id);
+        if(comments != null){
+            comments.forEach(comment -> {
+                comment.setUsername(usersInterface.getUsername(comment.getUserId()));
+            });
+        }
+        bugWithComment.setComments(comments);
+
+        Bugs bug = bugsRepo.findById(id).orElse(null);
+        BugWrapper bugWrapper = new BugWrapper();
+        bugWrapper.setTitle(bug.getTitle());
+        bugWrapper.setDescription(bug.getDescription());
+        bugWrapper.setStatus(bug.getStatus());
+        bugWrapper.setPriority(bug.getPriority());
+        bugWrapper.setCreatedDate(bug.getCreatedDate());
+        bugWrapper.setUpdatedDate(bug.getUpdatedDate());
+        bugWrapper.setTesterName(usersInterface.getUsername(bug.getTesterId()));
+        bugWithComment.setBug(bugWrapper);
+        
         return bugWithComment;
     }
 

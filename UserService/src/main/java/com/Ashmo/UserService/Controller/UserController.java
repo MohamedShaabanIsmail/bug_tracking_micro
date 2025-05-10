@@ -14,6 +14,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 
@@ -44,4 +45,13 @@ public class UserController {
         return userService.newAccessToken(token);
     }
     
+    @GetMapping("/username/{id}")
+    public String getUsername(@PathVariable int id) {
+        return userService.getUsername(id);
+    }
+
+    @GetMapping("/user/{username}")
+    public Users getUser(@PathVariable String username) {
+        return userService.getUser(username);
+    }
 }

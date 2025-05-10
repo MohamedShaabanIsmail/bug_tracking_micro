@@ -2,7 +2,7 @@ package com.Ashmo.BugService.DTO;
 
 import java.util.List;
 
-import com.Ashmo.BugService.Model.Bugs;
+import com.Ashmo.BugService.Model.BugWrapper;
 import com.Ashmo.BugService.Model.Comments;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BugWithComment {
 
-    private Bugs bug;
+    private BugWrapper bug;
 
     private List<Comments> comments;
 

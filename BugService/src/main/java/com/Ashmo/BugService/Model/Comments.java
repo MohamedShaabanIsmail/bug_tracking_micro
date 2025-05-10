@@ -13,13 +13,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Comments {
     
-    private int id;
+    private String username;
+
     private String comment;
     
-    // private int bugId;
     private int userId;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date createdDate;
 
+    public Comments(String comment, int userId, Date createdDate) {
+        this.comment = comment;
+        this.userId = userId;
+        this.createdDate = createdDate;
+    }
+
+    
 }
