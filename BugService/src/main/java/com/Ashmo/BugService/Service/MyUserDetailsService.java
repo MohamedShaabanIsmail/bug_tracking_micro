@@ -19,7 +19,13 @@ public class MyUserDetailsService implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Users user = usersInterface.getUser(username);
+        Users user;
+        try {
+            user = usersInterface.getUser(username);
+        } catch (Exception e) {
+            System.out.println("Error occurred while fetching user: " + e.getMessage());
+            throw new UsernameNotFoundException("User not found");
+        }
         if(user == null){
             System.out.println("user not found");
             throw new UsernameNotFoundException("user not found in class MyUserDetailsService");

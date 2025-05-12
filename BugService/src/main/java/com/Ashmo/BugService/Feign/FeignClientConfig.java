@@ -1,4 +1,4 @@
-package com.Ashmo.BugService.Configure;
+package com.Ashmo.BugService.Feign;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;

@@ -49,4 +49,8 @@ public class CommentsController {
         return ResponseEntity.ok().build();
     }
     
+    @DeleteMapping("/delete_by_bug/{id}")
+    public void deleteCommentsByBugId(@PathVariable int id) {
+        commentsService.deleteCommentsByBugId(id);
+    }
 }

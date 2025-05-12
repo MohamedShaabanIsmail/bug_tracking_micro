@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Ashmo.BugService.DTO.BugWithComment;
+import com.Ashmo.BugService.DTO.BugWithoutComment;
 import com.Ashmo.BugService.Model.Bugs;
 import com.Ashmo.BugService.Service.BugsService;
 
@@ -44,18 +46,18 @@ public class BugsController {
     }
     
     @GetMapping("/by_priority/{priority}")
-    public ResponseEntity<List<Bugs>> getBugsByPriority(@PathVariable String priority) {
-        List<Bugs> bugs = bugsService.getBugsByPriority(priority);
-        if(bugs.isEmpty())
+    public ResponseEntity<BugWithoutComment> getBugsByPriority(@PathVariable String priority) {
+        BugWithoutComment bugs = bugsService.getBugsByPriority(priority);
+        if(bugs == null)
             return ResponseEntity.noContent().build();
         else
             return ResponseEntity.ok(bugs);
     }
 
     @GetMapping("/by_status/{status}")
-    public ResponseEntity<List<Bugs>> getBugsByStatus(@PathVariable String status) {
-        List<Bugs> bugs = bugsService.getBugsByStatus(status);
-        if(bugs.isEmpty())
+    public ResponseEntity<BugWithoutComment> getBugsByStatus(@PathVariable String status) {
+        BugWithoutComment bugs = bugsService.getBugsByStatus(status);
+        if(bugs == null)
             return ResponseEntity.noContent().build();
         else
             return ResponseEntity.ok(bugs);
@@ -63,8 +65,8 @@ public class BugsController {
     
 
     @GetMapping("/developer_id/{id}")
-    public ResponseEntity<List<Bugs>> getBugByDevId(@PathVariable int id) {
-        List<Bugs> bugs = bugsService.getBugByDeveloperId(id);
+    public ResponseEntity<BugWithoutComment> getBugByDevId(@PathVariable int id) {
+        BugWithoutComment bugs = bugsService.getBugByDeveloperId(id);
         if (bugs == null)
             return ResponseEntity.notFound().build();
         else 
@@ -72,8 +74,8 @@ public class BugsController {
     }
 
     @GetMapping("/tester_id/{id}")
-    public ResponseEntity<List<Bugs>> getBugByTesId(@PathVariable int id) {
-        List<Bugs> bugs = bugsService.getBugByTesterId(id);
+    public ResponseEntity<BugWithoutComment> getBugByTesId(@PathVariable int id) {
+        BugWithoutComment bugs = bugsService.getBugByTesterId(id);
         if (bugs == null)
             return ResponseEntity.notFound().build();
         else 
@@ -90,12 +92,20 @@ public class BugsController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Bugs>> getAllBugs() {
-        List<Bugs> bugs = bugsService.getAllBugs();
-        if (bugs.isEmpty())
+    public ResponseEntity<BugWithoutComment> getAllBugs() {
+        BugWithoutComment bugs = bugsService.getAllBugs();
+        if (bugs == null)
             return ResponseEntity.noContent().build();
         else 
             return ResponseEntity.ok(bugs);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteBug(@PathVariable int id) {
+        Boolean isDeleted = bugsService.deleteBug(id);
+        if (!isDeleted)
+            return ResponseEntity.badRequest().build();
+        return ResponseEntity.ok().build();
     }
     
 }

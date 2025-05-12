@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Ashmo.BugService.DTO.BugWithComment;
+import com.Ashmo.BugService.DTO.BugWithoutComment;
 import com.Ashmo.BugService.Feign.CommentsInterface;
 import com.Ashmo.BugService.Feign.UsersInterface;
 import com.Ashmo.BugService.Model.BugWrapper;
@@ -25,12 +26,35 @@ public class BugsService {
     @Autowired
     private UsersInterface usersInterface;
     
-    public List<Bugs> getAllBugs() {
-        return bugsRepo.findAll();
+    private BugWithoutComment convertBugsToBugWithoutComment(List<Bugs> bugs) {
+        BugWithoutComment bugWithoutComment = new BugWithoutComment();
+        bugs.forEach(bug -> {
+            BugWrapper bugWrapper = new BugWrapper();
+            bugWrapper.setTitle(bug.getTitle());
+            bugWrapper.setDescription(bug.getDescription());
+            bugWrapper.setStatus(bug.getStatus());
+            bugWrapper.setPriority(bug.getPriority());
+            bugWrapper.setCreatedDate(bug.getCreatedDate());
+            bugWrapper.setUpdatedDate(bug.getUpdatedDate());
+            bugWrapper.setTesterName(usersInterface.getUsername(bug.getTesterId()));
+            bugWrapper.setDeveloperName(usersInterface.getUsername(bug.getDeveloperId()));
+            bugWithoutComment.getBugs().add(bugWrapper);
+        });
+        return bugWithoutComment;
     }
 
-    public List<Bugs> getBugByDeveloperId(int id) {
-        return bugsRepo.findByDeveloperId(id);
+    public BugWithoutComment getAllBugs() {
+        List<Bugs> bugs = bugsRepo.findAll();
+        if(bugs == null)
+            return null;
+        return convertBugsToBugWithoutComment(bugs);
+    }
+
+    public BugWithoutComment getBugByDeveloperId(int id) {
+        List<Bugs> bugs = bugsRepo.findByDeveloperId(id);
+        if(bugs == null)
+            return null;
+        return convertBugsToBugWithoutComment(bugs);
     }
 
     public Bugs createBug(Bugs bug) {
@@ -40,11 +64,16 @@ public class BugsService {
     }
 
     public Bugs updateBug(Bugs bug) {
+        bug.setUpdatedDate(new Date(System.currentTimeMillis()));
         return bugsRepo.save(bug);
     }
     
     public BugWithComment getBugById(int id) {
         BugWithComment bugWithComment = new BugWithComment();
+
+        Bugs bug = bugsRepo.findById(id).orElse(null);
+        if(bug == null)
+            return null;
 
         List<Comments> comments = commentsInterface.getCommentsByBugId(id);
         if(comments != null){
@@ -54,7 +83,6 @@ public class BugsService {
         }
         bugWithComment.setComments(comments);
 
-        Bugs bug = bugsRepo.findById(id).orElse(null);
         BugWrapper bugWrapper = new BugWrapper();
         bugWrapper.setTitle(bug.getTitle());
         bugWrapper.setDescription(bug.getDescription());
@@ -68,16 +96,40 @@ public class BugsService {
         return bugWithComment;
     }
 
-    public List<Bugs> getBugsByStatus(String status) {
-        return bugsRepo.findByStatus(status);
+    public BugWithoutComment getBugsByStatus(String status) {
+        List<Bugs> bugs = bugsRepo.findByStatus(status);
+        if(bugs == null)
+            return null;
+        return convertBugsToBugWithoutComment(bugs);
     }
 
-    public List<Bugs> getBugsByPriority(String priority) {
-        return bugsRepo.findByPriority(priority);
+    public BugWithoutComment getBugsByPriority(String priority) {
+        List<Bugs> bugs = bugsRepo.findByPriority(priority);
+        if(bugs == null)
+            return null;
+        return convertBugsToBugWithoutComment(bugs);
     }
 
-    public List<Bugs> getBugByTesterId(int id) {
-        return bugsRepo.findByTesterId(id);
+    public BugWithoutComment getBugByTesterId(int id) {
+        List<Bugs> bugs = bugsRepo.findByTesterId(id);
+        if(bugs == null)
+            return null;
+        return convertBugsToBugWithoutComment(bugs);
+    }
+
+    public Boolean deleteBug(int id) {
+        if(bugsRepo.existsById(id)){
+            try {
+                commentsInterface.deleteCommentsByBugId(id);
+            } catch (Exception e) {
+                System.out.println("Error deleting comments: " + e.getMessage());
+                return false;
+            }
+            bugsRepo.deleteById(id);
+            return true;
+        }
+        return false;
+        
     }
     
 }

@@ -33,4 +33,11 @@ public class CommentsService {
         return commentRepo.findByBugId(bugId);
     }
     
+    public void deleteCommentsByBugId(int bugId) {
+        List<Comments> comments = commentRepo.findByBugId(bugId);
+        if (comments.isEmpty()) {
+            return;
+        }
+        commentRepo.deleteAll(comments);
+    }
 }
