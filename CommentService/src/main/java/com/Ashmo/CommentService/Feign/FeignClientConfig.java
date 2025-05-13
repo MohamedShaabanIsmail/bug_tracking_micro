@@ -1,4 +1,4 @@
-package com.Ashmo.BugService.Feign;
+package com.Ashmo.CommentService.Feign;
 
 import feign.RequestInterceptor;
 import jakarta.servlet.http.HttpServletRequest;
