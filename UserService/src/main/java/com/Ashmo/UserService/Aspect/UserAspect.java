@@ -16,22 +16,22 @@ public class UserAspect {
 
     Logger logger = LoggerFactory.getLogger(UserAspect.class);
 
-    @Pointcut(value = "execution(* com.Ashmo.UserService.Service..*(..))")
+    @Pointcut("execution(* com.Ashmo.CommentService.Service..*(..))")
     public void serviceLayer() {}
-    @Pointcut(value = "execution(* com.Ashmo.UserService.Configure..*(..))")
+    @Pointcut("execution(* com.Ashmo.CommentService.Configure..*(..))")
     public void configureLayer() {}
-    @Pointcut(value = "execution(* com.Ashmo.UserService.Filter..*(..))")
+    @Pointcut("execution(* com.Ashmo.CommentService.Filter..*(..))")
     public void filterLayer() {}
-    @Pointcut(value = "serviceLayer() || configureLayer() || filterLayer()")
+    @Pointcut("serviceLayer() || controllerLayer() || filterLayer()")
     public void allLayer() {}
 
-    @Around(value = "execution(* com.Ashmo.UserService.Service..*(..))")
+    @Around(value = "execution(* com.Ashmo.CommentService.Service..*(..))")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
         Object proceed = joinPoint.proceed();
         long executionTime = System.currentTimeMillis() - start;
         logger.info("#######~~~~~~~#######");
-        logger.info("Method {} executed in {} ms", joinPoint.getSignature(), executionTime);
+        logger.info("Method "+ joinPoint.getSignature().getName() +" executed in: " + executionTime + "ms");
         logger.info("#######~~~~~~~#######");
         return proceed;
     }
