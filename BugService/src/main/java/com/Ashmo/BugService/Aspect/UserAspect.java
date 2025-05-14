@@ -16,16 +16,16 @@ public class UserAspect {
 
     Logger logger = LoggerFactory.getLogger(UserAspect.class);
 
-    @Pointcut("execution(* com.Ashmo.BugService.Service..*(..))")
+    @Pointcut("execution(* com.Ashmo.CommentService.Service..*(..))")
     public void serviceLayer() {}
-    @Pointcut("execution(* com.Ashmo.BugService.Configure..*(..))")
+    @Pointcut("execution(* com.Ashmo.CommentService.Configure..*(..))")
     public void configureLayer() {}
-    @Pointcut("execution(* com.Ashmo.BugService.Filter..*(..))")
+    @Pointcut("execution(* com.Ashmo.CommentService.Filter..*(..))")
     public void filterLayer() {}
     @Pointcut("serviceLayer() || controllerLayer() || filterLayer()")
     public void allLayer() {}
 
-    @Around(value = "execution(* com.Ashmo.BugService.Service..*(..))")
+    @Around(value = "execution(* com.Ashmo.CommentService.Service..*(..))")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
         Object proceed = joinPoint.proceed();

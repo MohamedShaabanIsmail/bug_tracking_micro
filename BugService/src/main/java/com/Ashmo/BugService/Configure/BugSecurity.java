@@ -30,5 +30,5 @@ public class BugSecurity {
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
     }
-
+    
 }

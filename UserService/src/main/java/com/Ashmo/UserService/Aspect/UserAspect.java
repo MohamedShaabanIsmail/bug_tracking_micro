@@ -22,7 +22,7 @@ public class UserAspect {
     public void configureLayer() {}
     @Pointcut(value = "execution(* com.Ashmo.UserService.Filter..*(..))")
     public void filterLayer() {}
-    @Pointcut(value = "serviceLayer() || controllerLayer() || filterLayer()")
+    @Pointcut(value = "serviceLayer() || configureLayer() || filterLayer()")
     public void allLayer() {}
 
     @Around(value = "execution(* com.Ashmo.UserService.Service..*(..))")
@@ -31,7 +31,7 @@ public class UserAspect {
         Object proceed = joinPoint.proceed();
         long executionTime = System.currentTimeMillis() - start;
         logger.info("#######~~~~~~~#######");
-        logger.info("Method "+ joinPoint.getSignature().getName() +" executed in: " + executionTime + "ms");
+        logger.info("Method {} executed in {} ms", joinPoint.getSignature(), executionTime);
         logger.info("#######~~~~~~~#######");
         return proceed;
     }
