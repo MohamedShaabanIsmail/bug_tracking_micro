@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +23,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/register")
     public Users addUser(@RequestBody Users user) {
         return userService.addUser(user);

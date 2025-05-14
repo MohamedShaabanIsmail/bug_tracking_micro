@@ -28,7 +28,9 @@ public class EncryptDecryptRole {
             Cipher cipher = Cipher.getInstance(ALG);
             cipher.init(cipher.DECRYPT_MODE, SEC_KEY);
             byte[] decodedBytes = Base64.getDecoder().decode(encryptedRole);
-            return new String(cipher.doFinal(decodedBytes));
+            String s = new String(cipher.doFinal(decodedBytes));
+            System.out.println(s);
+            return s;
         } catch (Exception e) {
             throw new RuntimeException("Error while encrypting role", e);
         }

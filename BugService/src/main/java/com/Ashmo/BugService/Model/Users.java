@@ -1,7 +1,5 @@
 package com.Ashmo.BugService.Model;
 
-import com.Ashmo.BugService.Service.EncryptDecryptRole;
-
 public class Users {
 
     private int id;
@@ -28,7 +26,7 @@ public class Users {
         this.password = password;
     }
     public void setRole(String role) {
-        this.role = EncryptDecryptRole.encrypt(role);
+        this.role = role;
     }
     public String getRole() {
         return role;
