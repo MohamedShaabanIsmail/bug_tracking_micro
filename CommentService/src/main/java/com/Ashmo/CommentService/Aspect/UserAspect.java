@@ -16,15 +16,7 @@ public class UserAspect {
 
     Logger logger = LoggerFactory.getLogger(UserAspect.class);
 
-    @Pointcut("execution(* com.Ashmo.CommentService.Service..*(..))")
-    public void serviceLayer() {}
-    @Pointcut("execution(* com.Ashmo.CommentService.Configure..*(..))")
-    public void configureLayer() {}
-    @Pointcut("execution(* com.Ashmo.CommentService.Filter..*(..))")
-    public void filterLayer() {}
-    @Pointcut("serviceLayer() || controllerLayer() || filterLayer()")
-    public void allLayer() {}
-
+    
     @Around(value = "execution(* com.Ashmo.CommentService.Service..*(..))")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
@@ -36,7 +28,7 @@ public class UserAspect {
         return proceed;
     }
 
-    @AfterThrowing(value = "allLayer()", throwing = "exception")
+    @AfterThrowing(value = "execution(* com.Ashmo.CommentService.Service..*(..))", throwing = "exception")
     public void logAfterThrowing(JoinPoint joinPoint, Exception exception) {
         logger.info("#######~~~~~~~#######");
         logger.error("Method name : " + joinPoint.getSignature().getName() + " Exception occurred: " + exception.getMessage());

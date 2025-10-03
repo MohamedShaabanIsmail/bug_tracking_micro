@@ -2,7 +2,7 @@ package com.Ashmo.BugService.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+// import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +34,7 @@ public class BugsController {
         return ResponseEntity.ok(bugUpdated);
     }
 
-    @PreAuthorize("hasAuthority('TESTER')")
+   // @PreAuthorize("hasAuthority('TESTER')")
     @PostMapping("/create")
     public ResponseEntity<Bugs> CreateNewBug(@RequestBody Bugs bug) {
         Bugs bugCreated = bugsService.createBug(bug);
@@ -99,7 +99,7 @@ public class BugsController {
             return ResponseEntity.ok(bugs);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    // @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteBug(@PathVariable int id) {
         Boolean isDeleted = bugsService.deleteBug(id);

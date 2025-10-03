@@ -36,7 +36,7 @@ public class UserAspect {
         return proceed;
     }
 
-    @AfterThrowing(value = "allLayer()", throwing = "exception")
+    @AfterThrowing(value = "execution(* com.Ashmo.CommentService.Service..*(..)) || execution(* com.Ashmo.CommentService.Configure..*(..)) || execution(* com.Ashmo.CommentService.Filter..*(..))", throwing = "exception")
     public void logAfterThrowing(JoinPoint joinPoint, Exception exception) {
         logger.info("#######~~~~~~~#######");
         logger.error("Method name : " + joinPoint.getSignature().getName() + " Exception occurred: " + exception.getMessage());
