@@ -6,6 +6,7 @@ import javax.crypto.SecretKey;
 
 import org.springframework.stereotype.Component;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
@@ -18,18 +19,17 @@ public class TokenValidation {
         seckey = Keys.hmacShaKeyFor(Base64.getDecoder().decode("MicroserviceSecureApplicationAshmoSecretByJwtandRefreshT")); 
     }
 
-    // private <T> T extractClaim(String token, Function<Claims, T> claimResolver) {
-    //     final Claims claims = extractAllClaims(token);
-    //     return claimResolver.apply(claims);
-    // }
+    private Claims extractAllClaims(String token) {
+        return Jwts.parser()
+                .verifyWith(seckey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
+    }
 
-    // private Claims extractAllClaims(String token) {
-    //     return Jwts.parser()
-    //             .verifyWith(seckey)
-    //             .build()
-    //             .parseSignedClaims(token)
-    //             .getPayload();
-    // }
+    public String extractRole(String token) {
+        return extractAllClaims(token).get("role",String.class);
+    }
 
     public void validateToken(String token) {
         Jwts.parser()
@@ -37,18 +37,5 @@ public class TokenValidation {
             .build()
             .parseSignedClaims(token);
     }
-    
-
-    // public boolean validateToken(String token) {
-    //     return !isTokenExpired(token);
-    // }
-
-    // private boolean isTokenExpired(String token) {
-    //     return extractExpiration(token).before(new Date());
-    // }
-
-    // private Date extractExpiration(String token) {
-    //     return extractClaim(token, Claims::getExpiration);
-    // }
 
 }

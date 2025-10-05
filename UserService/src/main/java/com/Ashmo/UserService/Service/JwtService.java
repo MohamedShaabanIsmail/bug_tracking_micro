@@ -24,8 +24,10 @@ public class JwtService {
         seckey = Keys.hmacShaKeyFor(Base64.getDecoder().decode("MicroserviceSecureApplicationAshmoSecretByJwtandRefreshT")); 
     }
 
-    public String generateToken(String username, int time) {
+    public String generateToken(String username, int time, String role) {
         Map<String,Object> claim = new HashMap<>();
+        claim.put("role", role);
+        System.out.println(role);
         return Jwts.builder()
             .claims(claim)
             .subject(username)
@@ -37,6 +39,11 @@ public class JwtService {
 
     public String extractUsername(String token) {
         return extractClaim(token,Claims::getSubject);
+    }
+
+    public String extractRole(String token) {
+        String role = extractAllClaims(token).get("role",String.class);
+        return role;
     }
 
     private <T> T extractClaim(String token, Function<Claims, T> claimResolver) {
@@ -52,7 +59,7 @@ public class JwtService {
                 .getPayload();
     }
 
-     public boolean validateToken(String token, UserDetails userDetails) {
+    public boolean validateToken(String token, UserDetails userDetails) {
         final String userName = extractUsername(token);
         return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
