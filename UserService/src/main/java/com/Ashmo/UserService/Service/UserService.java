@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.Ashmo.UserService.Model.MyUserDetails;
 import com.Ashmo.UserService.Model.RefreshToken;
 import com.Ashmo.UserService.Model.Users;
 import com.Ashmo.UserService.Reposatory.TokenRepo;
@@ -39,17 +40,17 @@ public class UserService {
     }
 
     public Map<String, String> verify(Users user) {
-        Authentication authen = authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+        Authentication authen = authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
         if(authen.isAuthenticated()){
 
-            String role = EncryptDecryptRole.decrypt(getUser(user.getUsername()).getRole());
+            String role = EncryptDecryptRole.decrypt(getUserByEmail(user.getEmail()).getRole());
             Map<String,String> map = new HashMap<>();
-            map.put("access_token", jwtService.generateToken(user.getUsername(), 1000*60 , role));
-            map.put("refresh_token", jwtService.generateToken(user.getUsername(), 1000*60*60*24 , role));
+            map.put("access_token", jwtService.generateToken(user.getEmail(), 1000*60 , role));
+            map.put("refresh_token", jwtService.generateToken(user.getEmail(), 1000*60*60*24 , role));
 
             RefreshToken refreshToken = new RefreshToken();
             refreshToken.setToken(map.get("refresh_token"));
-            refreshToken.setUsername(user.getUsername());
+            refreshToken.setEmail(user.getEmail());
             tokenRepo.save(refreshToken);
 
             return map;
@@ -64,7 +65,7 @@ public class UserService {
             return null;
         }
         try{
-            if(!jwtService.validateToken(token, userDetailsService.loadUserByUsername(refreshToken.getUsername()))){
+            if(!jwtService.validateToken(token,(MyUserDetails) userDetailsService.loadUserByUsername(refreshToken.getEmail()))){
                 tokenRepo.deleteByToken(token);
                 return null;
             }
@@ -75,7 +76,7 @@ public class UserService {
         }
         
         Map<String, String> tokens = new HashMap<>();
-        tokens.put("access_token", jwtService.generateToken(refreshToken.getUsername(), 1000 * 60 ,jwtService.extractRole(token)));
+        tokens.put("access_token", jwtService.generateToken(refreshToken.getEmail(), 1000 * 60 ,jwtService.extractRole(token)));
         tokens.put("refresh_token", token);
         return tokens;
     }
@@ -88,4 +89,7 @@ public class UserService {
         return userRepo.getByUsername(username);
     }
     
+    public Users getUserByEmail(String email) {
+        return userRepo.getByEmail(email);
+    }
 }

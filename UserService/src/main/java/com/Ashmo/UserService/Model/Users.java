@@ -13,6 +13,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
+    private String email;
     private String password;
     private String role;
 
@@ -39,5 +40,11 @@ public class Users {
     }
     public String getRole() {
         return role;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

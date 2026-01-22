@@ -11,6 +11,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.Ashmo.UserService.Model.MyUserDetails;
 import com.Ashmo.UserService.Service.JwtService;
 import com.Ashmo.UserService.Service.MyUserDetailsService;
 
@@ -37,10 +38,11 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if (header != null && header.startsWith("Bearer ")){
             token = header.substring(7);
-            username = jwtService.extractUsername(token);
+            username = jwtService.extractEmail(token);
         }
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+            MyUserDetails userDetails = (MyUserDetails)userDetailsService.loadUserByUsername(username);
+            System.out.println(userDetails.getEmail());
             if(jwtService.validateToken(token,userDetails)){
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

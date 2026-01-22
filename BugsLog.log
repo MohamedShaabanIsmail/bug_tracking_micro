@@ -1,0 +1,77 @@
+2025-10-07T21:12:42.527+03:00  INFO 15092 --- [BugService] [restartedMain] c.A.BugService.BugServiceApplication     : Starting BugServiceApplication using Java 21.0.1 with PID 15092 (D:\Mohammad\Spring\bug_tracking_micro\BugService\target\classes started by Ahmed Shaaban in D:\Mohammad\Spring\bug_tracking_micro)
+2025-10-07T21:12:42.534+03:00  INFO 15092 --- [BugService] [restartedMain] c.A.BugService.BugServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-10-07T21:12:42.639+03:00  INFO 15092 --- [BugService] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-07T21:12:42.639+03:00  INFO 15092 --- [BugService] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-07T21:12:43.539+03:00  INFO 15092 --- [BugService] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-07T21:12:43.704+03:00  INFO 15092 --- [BugService] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 148 ms. Found 1 JPA repository interface.
+2025-10-07T21:12:43.975+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=512f87fe-0f05-36d0-8f32-912abc8e46ba
+2025-10-07T21:12:44.696+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-10-07T21:12:44.730+03:00  INFO 15092 --- [BugService] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-07T21:12:44.731+03:00  INFO 15092 --- [BugService] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-10-07T21:12:44.866+03:00  INFO 15092 --- [BugService] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-07T21:12:44.869+03:00  INFO 15092 --- [BugService] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2225 ms
+2025-10-07T21:12:45.090+03:00  INFO 15092 --- [BugService] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-07T21:12:45.158+03:00  INFO 15092 --- [BugService] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-10-07T21:12:45.201+03:00  INFO 15092 --- [BugService] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-07T21:12:45.573+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-07T21:12:45.603+03:00  INFO 15092 --- [BugService] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-07T21:12:45.853+03:00  INFO 15092 --- [BugService] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@773ce996
+2025-10-07T21:12:45.854+03:00  INFO 15092 --- [BugService] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-07T21:12:45.968+03:00  INFO 15092 --- [BugService] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-07T21:12:46.864+03:00  INFO 15092 --- [BugService] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-07T21:12:46.956+03:00  INFO 15092 --- [BugService] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-07T21:12:47.419+03:00  WARN 15092 --- [BugService] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-07T21:12:47.469+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-07T21:12:48.506+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-10-07T21:12:48.654+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'COMMENTSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2025-10-07T21:12:48.783+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'USERSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2025-10-07T21:12:50.615+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-10-07T21:12:50.675+03:00  INFO 15092 --- [BugService] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-10-07T21:12:50.787+03:00  WARN 15092 --- [BugService] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-10-07T21:12:50.868+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-10-07T21:12:50.903+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-10-07T21:12:50.907+03:00  INFO 15092 --- [BugService] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:12:50.921+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-10-07T21:12:50.921+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-10-07T21:12:50.922+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-10-07T21:12:50.922+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-10-07T21:12:50.922+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-10-07T21:12:50.923+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-10-07T21:12:50.923+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-10-07T21:12:51.208+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-10-07T21:12:51.209+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-10-07T21:12:51.212+03:00  INFO 15092 --- [BugService] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-10-07T21:12:51.215+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1759860771214 with initial instances count: 0
+2025-10-07T21:12:51.229+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application BUGSERVICE with eureka with status UP
+2025-10-07T21:12:51.232+03:00  INFO 15092 --- [BugService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1759860771232, current=UP, previous=STARTING]
+2025-10-07T21:12:51.233+03:00  INFO 15092 --- [BugService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BUGSERVICE/localhost:BugService:8081: registering service...
+2025-10-07T21:12:51.257+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-10-07T21:12:51.261+03:00  INFO 15092 --- [BugService] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8081
+2025-10-07T21:12:51.289+03:00  INFO 15092 --- [BugService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BUGSERVICE/localhost:BugService:8081 - registration status: 204
+2025-10-07T21:12:52.280+03:00  INFO 15092 --- [BugService] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-10-07T21:12:52.298+03:00  INFO 15092 --- [BugService] [restartedMain] c.A.BugService.BugServiceApplication     : Started BugServiceApplication in 11.209 seconds (process running for 11.791)
+2025-10-07T21:13:21.224+03:00  INFO 15092 --- [BugService] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-10-07T21:13:21.224+03:00  INFO 15092 --- [BugService] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-10-07T21:13:21.225+03:00  INFO 15092 --- [BugService] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-10-07T21:13:21.225+03:00  INFO 15092 --- [BugService] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-10-07T21:13:21.225+03:00  INFO 15092 --- [BugService] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-10-07T21:13:21.226+03:00  INFO 15092 --- [BugService] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2025-10-07T21:13:21.226+03:00  INFO 15092 --- [BugService] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-10-07T21:13:21.257+03:00  INFO 15092 --- [BugService] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-10-07T21:17:50.941+03:00  INFO 15092 --- [BugService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:22:50.984+03:00  INFO 15092 --- [BugService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:27:50.999+03:00  INFO 15092 --- [BugService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:32:51.010+03:00  INFO 15092 --- [BugService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:34:48.676+03:00  INFO 15092 --- [BugService] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-07T21:34:48.676+03:00  INFO 15092 --- [BugService] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-07T21:34:48.758+03:00  INFO 15092 --- [BugService] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 82 ms
+2025-10-07T21:37:51.029+03:00  INFO 15092 --- [BugService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:42:51.045+03:00  INFO 15092 --- [BugService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:47:51.047+03:00  INFO 15092 --- [BugService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

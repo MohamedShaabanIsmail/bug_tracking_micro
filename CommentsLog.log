@@ -1,0 +1,73 @@
+2025-10-07T21:12:58.504+03:00  INFO 12576 --- [CommentService] [restartedMain] c.A.C.CommentServiceApplication          : Starting CommentServiceApplication using Java 21.0.1 with PID 12576 (D:\Mohammad\Spring\bug_tracking_micro\CommentService\target\classes started by Ahmed Shaaban in D:\Mohammad\Spring\bug_tracking_micro)
+2025-10-07T21:12:58.510+03:00  INFO 12576 --- [CommentService] [restartedMain] c.A.C.CommentServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-10-07T21:12:58.604+03:00  INFO 12576 --- [CommentService] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-07T21:12:58.605+03:00  INFO 12576 --- [CommentService] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-07T21:12:59.672+03:00  INFO 12576 --- [CommentService] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-07T21:12:59.816+03:00  INFO 12576 --- [CommentService] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 1 JPA repository interface.
+2025-10-07T21:13:00.082+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=302fa3d0-45eb-31a1-92f1-1d53e024f7d2
+2025-10-07T21:13:00.876+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-10-07T21:13:00.912+03:00  INFO 12576 --- [CommentService] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-07T21:13:00.913+03:00  INFO 12576 --- [CommentService] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-10-07T21:13:00.986+03:00  INFO 12576 --- [CommentService] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-07T21:13:00.987+03:00  INFO 12576 --- [CommentService] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2380 ms
+2025-10-07T21:13:01.179+03:00  INFO 12576 --- [CommentService] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-07T21:13:01.237+03:00  INFO 12576 --- [CommentService] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-10-07T21:13:01.299+03:00  INFO 12576 --- [CommentService] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-07T21:13:01.734+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-07T21:13:01.780+03:00  INFO 12576 --- [CommentService] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-07T21:13:02.128+03:00  INFO 12576 --- [CommentService] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@44c3ea4d
+2025-10-07T21:13:02.129+03:00  INFO 12576 --- [CommentService] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-07T21:13:02.196+03:00  INFO 12576 --- [CommentService] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-07T21:13:03.004+03:00  INFO 12576 --- [CommentService] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-07T21:13:03.053+03:00  INFO 12576 --- [CommentService] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-07T21:13:03.817+03:00  WARN 12576 --- [CommentService] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-07T21:13:04.818+03:00  WARN 12576 --- [CommentService] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-10-07T21:13:05.866+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-10-07T21:13:06.955+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-10-07T21:13:07.062+03:00  INFO 12576 --- [CommentService] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-10-07T21:13:07.219+03:00  WARN 12576 --- [CommentService] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-10-07T21:13:07.276+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-10-07T21:13:07.315+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-10-07T21:13:07.322+03:00  INFO 12576 --- [CommentService] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:13:07.337+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-10-07T21:13:07.338+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-10-07T21:13:07.338+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-10-07T21:13:07.338+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-10-07T21:13:07.340+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-10-07T21:13:07.340+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-10-07T21:13:07.340+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-10-07T21:13:07.930+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-10-07T21:13:07.932+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-10-07T21:13:07.935+03:00  INFO 12576 --- [CommentService] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-10-07T21:13:07.937+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1759860787936 with initial instances count: 2
+2025-10-07T21:13:07.944+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application COMMENTSERVICE with eureka with status UP
+2025-10-07T21:13:07.947+03:00  INFO 12576 --- [CommentService] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1759860787947, current=UP, previous=STARTING]
+2025-10-07T21:13:07.951+03:00  INFO 12576 --- [CommentService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_COMMENTSERVICE/localhost:CommentService:8082: registering service...
+2025-10-07T21:13:07.994+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-10-07T21:13:07.997+03:00  INFO 12576 --- [CommentService] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2025-10-07T21:13:08.035+03:00  INFO 12576 --- [CommentService] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_COMMENTSERVICE/localhost:CommentService:8082 - registration status: 204
+2025-10-07T21:13:09.018+03:00  INFO 12576 --- [CommentService] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-10-07T21:13:09.029+03:00  INFO 12576 --- [CommentService] [restartedMain] c.A.C.CommentServiceApplication          : Started CommentServiceApplication in 11.967 seconds (process running for 12.543)
+2025-10-07T21:18:07.352+03:00  INFO 12576 --- [CommentService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:23:07.371+03:00  INFO 12576 --- [CommentService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:28:07.384+03:00  INFO 12576 --- [CommentService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:33:07.398+03:00  INFO 12576 --- [CommentService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:35:58.950+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-07T21:35:58.953+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-07T21:35:59.003+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 50 ms
+2025-10-07T21:35:59.501+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-1] c.A.CommentService.Aspect.UserAspect     : #######~~~~~~~#######
+2025-10-07T21:35:59.503+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-1] c.A.CommentService.Aspect.UserAspect     : Method createComment executed in: 265ms
+2025-10-07T21:35:59.503+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-1] c.A.CommentService.Aspect.UserAspect     : #######~~~~~~~#######
+2025-10-07T21:36:12.202+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-2] c.A.CommentService.Aspect.UserAspect     : #######~~~~~~~#######
+2025-10-07T21:36:12.202+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-2] c.A.CommentService.Aspect.UserAspect     : Method createComment executed in: 17ms
+2025-10-07T21:36:12.202+03:00  INFO 12576 --- [CommentService] [http-nio-8082-exec-2] c.A.CommentService.Aspect.UserAspect     : #######~~~~~~~#######
+2025-10-07T21:38:07.408+03:00  INFO 12576 --- [CommentService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:43:07.415+03:00  INFO 12576 --- [CommentService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-10-07T21:48:07.421+03:00  INFO 12576 --- [CommentService] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
